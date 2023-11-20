@@ -1,7 +1,7 @@
 # ICS 212
-## Lab - Week 13
+## Homework - Week 13
 
-# Inheritance
+# Animals
 
 ### Instructions:
 - Update the program files following instructions provided in the assignment pdf (uploaded on Laulima) and in the program comments.

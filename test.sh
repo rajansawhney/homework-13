@@ -2,16 +2,30 @@ echo "Running tests..."
 echo
 
 echo "*****"
-echo -e "Inheritance...\\n"
+echo -e "Animals...\\n"
 output_animal=$(./animal)
 echo "$output_animal"
 
-expected_output_eat="I can eat"
-expected_output_sleep="I can sleep"
-expected_output_bark="I can bark"
-expected_output_meow="I can bark"
-expected_output_mammal="I am a mammal"
-expected_output_color="My color is"
+
+expected_output_dog="I can eat!
+I can sleep!
+I can bark! Woof woof!!
+I am a Dog.
+I have 4 legs and 1 tail.
+My color is"
+
+expected_output_cat="
+I can eat!
+I can sleep!
+I can meow! Meow meow!!
+I am a Cat.
+I have 4 legs and 1 tail.
+My color is"
+
+expected_output_bat="
+I am a Bat.
+I have 2 wings.
+My color is"
 
 
 if [ $? -eq 0 ] ; then
@@ -22,15 +36,24 @@ else
 fi
 
 
-if [[ ${output_animal//[[:space:]]/} == *${expected_output_eat//[[:space:]]/}* &&
-      ${output_animal//[[:space:]]/} == *${expected_output_sleep//[[:space:]]/}*  &&
-      ${output_animal//[[:space:]]/} == *${expected_output_bark//[[:space:]]/}*  &&
-      ${output_animal//[[:space:]]/} == *${expected_output_meow//[[:space:]]/}* &&
-      ${output_animal//[[:space:]]/} == *${expected_output_mammal//[[:space:]]/}*  &&
-      ${output_animal//[[:space:]]/} == *${expected_output_color//[[:space:]]/}*  ]] ; then
+if [[ ${output_animal//[[:space:]]/} == *${expected_output_dog//[[:space:]]/}* ]] ; then
   echo -e "Pass: Output is correct"
 else
-  echo "Expected '$expected_output_animal' but got: $output_animal"
+  echo "Expected '$expected_output_dog' but got: $output_animal"
+  exit 1
+fi
+
+if [[ ${output_animal//[[:space:]]/} == *${expected_output_cat//[[:space:]]/}* ]] ; then
+  echo -e "Pass: Output is correct"
+else
+  echo "Expected '$expected_output_cat' but got: $output_animal"
+  exit 1
+fi
+
+if [[ ${output_animal//[[:space:]]/} == *${expected_output_bat//[[:space:]]/}*  ]] ; then
+  echo -e "Pass: Output is correct"
+else
+  echo "Expected '$expected_output_bat' but got: $output_animal"
   exit 1
 fi
 
